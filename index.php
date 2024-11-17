@@ -28,7 +28,7 @@ $productosMasVendidos = obtenerProductosMasVendidos();
 <head lang="es">
 	<?php require_once("encabezado.php"); ?>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-	<title>Sistema evento Perú</title>
+	<title>Sistema Evento Perú</title>
 	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
 
