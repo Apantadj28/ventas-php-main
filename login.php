@@ -20,7 +20,7 @@ include_once "encabezado.php";
             <div class="d-flex justify-content-center sign-avatar">
                 <img src="img/usuario.jpg" alt="login-icon" style="height: 7rem" />
             </div>
-            <div class="text-center fs-1 fw-bold">Iniciar sesión Rapido</div>
+            <div class="text-center fs-1 fw-bold">"Iniciar sesión"</div>
             <div class="input-group mt-4">
                 <div class="input-group-text">
                     <i class="bi bi-person-fill"></i>
