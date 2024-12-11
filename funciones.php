@@ -67,8 +67,8 @@ function eliminarCliente($id){
     return eliminar($sentencia, $id);
 }
 
-function editarCliente($nombre, $telefono, $correo, $direccion, $id){
-    $sentencia = "UPDATE clientes SET nombre = ?, telefono = ?, correo = ?,direccion = ? WHERE id = ?";
+function editarCliente($nombre, $telefono, $direccion, $id){
+    $sentencia = "UPDATE clientes SET nombre = ?, telefono = ?, direccion = ? WHERE id = ?";
     $parametros = [$nombre, $telefono, $direccion, $id];
     return editar($sentencia, $parametros);
 }
@@ -84,11 +84,9 @@ function obtenerClientes(){
     return select($sentencia);
 }
 
-function registrarCliente($nombre, $telefono, $correo, $direccion){
-    $sentencia = "INSERT INTO clientes (nombre, telefono, correo, direccion) VALUES (?,?,?,?)";
-    $parametros = [$nombre, $telefono, $correo, $direccion];
-   
-
+function registrarCliente($nombre, $telefono, $direccion){
+    $sentencia = "INSERT INTO clientes (nombre, telefono, direccion) VALUES (?,?,?)";
+    $parametros = [$nombre, $telefono, $direccion];
     return insertar($sentencia, $parametros);
 }
 
