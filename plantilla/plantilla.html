@@ -1,8 +1,15 @@
-<html>
+<html lang="es">
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+    <style>a:hover {background-color:#45a049}</style>
 </head>
-<body>
-    <h1>Hola {{nombre}}</h1>
+<body style="background-color:#f4f4f9; color:#333; font-family:Arial, sans-serif; padding:20px; text-align:center" bgcolor="#f4f4f9" align="center">
+    <div class="container" style="background-color:#fff; border-radius:10px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.1); margin:50px auto; max-width:600px; padding:20px" bgcolor="#ffffff">
+        <h1 style="color:#4CAF50">¡Bienvenido {{nombre}}!</h1>
+        <p style="font-size:18px">Estamos encantados de que estés aquí. Este es un sitio diseñado para brindarte la mejor experiencia posible. Explora y disfruta de todo lo que tenemos para ofrecerte.Tu usuario es {{usuario}}</p>
+        <a href="http://localhost:3000/xampp/phpMyAdmin/ventas-php-main/index.php" style="background-color:#4CAF50; border-radius:5px; color:white; display:inline-block; margin-top:20px; padding:10px 20px; text-decoration:none" bgcolor="#4CAF50">Explorar ahora</a>
+    </div>
 </body>
 </html>

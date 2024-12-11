@@ -46,10 +46,12 @@ if(isset($_POST['registrar'])){
     $usuario = $_POST['usuario'];
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
     $direccion = $_POST['direccion'];
     if(empty($usuario)
     ||empty($nombre) 
     || empty($telefono) 
+    || empty($correo) 
     || empty($direccion)){
         echo'
         <div class="alert alert-danger mt-3" role="alert">
@@ -59,7 +61,7 @@ if(isset($_POST['registrar'])){
     } 
     
     include_once "funciones.php";
-    $resultado = registrarUsuario($usuario, $nombre, $telefono, $direccion);
+    $resultado = registrarUsuario($usuario, $nombre, $telefono, $correo,$direccion);
     if($resultado){
         echo'
         <div class="alert alert-success mt-3" role="alert">

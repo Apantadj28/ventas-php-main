@@ -1,5 +1,5 @@
 <?php
-
+require 'enviarcorreo.php'; 
 define("PASSWORD_PREDETERMINADA", "a123456A");
 define("HOY", date("Y-m-d"));
 
@@ -33,7 +33,7 @@ function eliminarUsuario($id){
 
 function editarUsuario($usuario, $nombre, $telefono, $correo, $direccion, $id){
     $sentencia = "UPDATE usuarios SET usuario = ?, nombre = ?, telefono = ?, correo = ?, direccion = ? WHERE id = ?";
-    $parametros = [$usuario, $nombre, $telefono, $direccion,$correo, $id];
+    $parametros = [$usuario, $nombre, $telefono, $correo, $direccion, $id];
     return editar($sentencia, $parametros);
 }
 
@@ -49,8 +49,15 @@ function obtenerUsuarios(){
 
 function registrarUsuario($usuario, $nombre, $telefono, $correo, $direccion){
     $password = password_hash(PASSWORD_PREDETERMINADA, PASSWORD_DEFAULT);
-    $sentencia = "INSERT INTO usuarios (usuario, nombre, telefono, correo, direccion, password) VALUES (?,?,?,?,?)";
+    $sentencia = "INSERT INTO usuarios (usuario, nombre, telefono, correo, direccion, password) VALUES (?,?,?,?,?,?)";
     $parametros = [$usuario, $nombre, $telefono, $correo, $direccion, $password];
+    $emailSender = new EmailSender(
+        $correo,
+        'Asunto del correo de prueba',
+        'plantilla/plantilla.html', 
+        ['nombre' => $nombre,'usuario'=> $usuario] 
+    );
+    $emailSender->sendEmail();
     return insertar($sentencia, $parametros);
 }
 
@@ -78,8 +85,10 @@ function obtenerClientes(){
 }
 
 function registrarCliente($nombre, $telefono, $correo, $direccion){
-    $sentencia = "INSERT INTO clientes (nombre, telefono, correo, direccion) VALUES (?,?,?)";
+    $sentencia = "INSERT INTO clientes (nombre, telefono, correo, direccion) VALUES (?,?,?,?)";
     $parametros = [$nombre, $telefono, $correo, $direccion];
+   
+
     return insertar($sentencia, $parametros);
 }
 
@@ -422,6 +431,8 @@ function editar($sentencia, $parametros ){
     $respuesta = $bd->prepare($sentencia);
     return $respuesta->execute($parametros);
 }
+
+
 
 function conectarBaseDatos() {
 	$host = "localhost";

@@ -29,6 +29,10 @@ $usuario = obtenerUsuarioPorId($id);
             <input type="text" name="telefono" class="form-control" value="<?php echo $usuario->telefono;?>" id="telefono" placeholder="Ej. 2111568974">
         </div>
         <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="text" name="correo" class="form-control" value="<?php echo $usuario->correo;?>" id="correo" placeholder="Ej. xxxxx@xxxxx.com">
+        </div>
+        <div class="mb-3">
             <label for="direccion" class="form-label">Dirección</label>
             <input type="text" name="direccion" class="form-control" value="<?php echo $usuario->direccion;?>" id="direccion" placeholder="Ej. Av Collar 1005 Col Las Cruces">
         </div>
@@ -49,10 +53,12 @@ if(isset($_POST['registrar'])){
     $usuario = $_POST['usuario'];
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
     $direccion = $_POST['direccion'];
     if(empty($usuario)
     ||empty($nombre) 
     || empty($telefono) 
+    || empty($correo) 
     || empty($direccion)){
         echo'
         <div class="alert alert-danger mt-3" role="alert">
@@ -62,7 +68,7 @@ if(isset($_POST['registrar'])){
     } 
     
     include_once "funciones.php";
-    $resultado = editarUsuario($usuario, $nombre, $telefono, $direccion, $id);
+    $resultado = editarUsuario($usuario, $nombre, $telefono, $correo, $direccion, $id);
     if($resultado){
         echo'
         <div class="alert alert-success mt-3" role="alert">
