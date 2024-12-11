@@ -21,9 +21,11 @@ $usuarios = obtenerUsuarios();
                 <th>Usuario</th>
                 <th>Nombre</th>
                 <th>Teléfono</th>
+                <th>Correo</th>
                 <th>Dirección</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
+
             </tr>
         </thead>
         <tbody>
@@ -34,6 +36,7 @@ $usuarios = obtenerUsuarios();
                     <td><?php echo $usuario->usuario; ?></td>
                     <td><?php echo $usuario->nombre; ?></td>
                     <td><?php echo $usuario->telefono; ?></td>
+                    <td><?php echo $usuario->correo; ?></td>
                     <td><?php echo $usuario->direccion; ?></td>
                     <td>
                         <a class="btn btn-info" href="editar_usuario.php?id=<?php echo $usuario->id; ?>">

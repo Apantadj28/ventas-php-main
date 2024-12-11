@@ -31,26 +31,26 @@ function eliminarUsuario($id){
     return eliminar($sentencia, $id);
 }
 
-function editarUsuario($usuario, $nombre, $telefono, $direccion, $id){
-    $sentencia = "UPDATE usuarios SET usuario = ?, nombre = ?, telefono = ?, direccion = ? WHERE id = ?";
-    $parametros = [$usuario, $nombre, $telefono, $direccion, $id];
+function editarUsuario($usuario, $nombre, $telefono, $correo, $direccion, $id){
+    $sentencia = "UPDATE usuarios SET usuario = ?, nombre = ?, telefono = ?, correo = ?, direccion = ? WHERE id = ?";
+    $parametros = [$usuario, $nombre, $telefono, $direccion,$correo, $id];
     return editar($sentencia, $parametros);
 }
 
 function obtenerUsuarioPorId($id){
-    $sentencia = "SELECT id, usuario, nombre, telefono, direccion FROM usuarios WHERE id = ?";
+    $sentencia = "SELECT id, usuario, nombre, telefono, correo, direccion FROM usuarios WHERE id = ?";
     return select($sentencia, [$id])[0];
 }
 
 function obtenerUsuarios(){
-    $sentencia = "SELECT id, usuario, nombre, telefono, direccion FROM usuarios";
+    $sentencia = "SELECT id, usuario, nombre, telefono, correo, direccion FROM usuarios";
     return select($sentencia);
 }
 
-function registrarUsuario($usuario, $nombre, $telefono, $direccion){
+function registrarUsuario($usuario, $nombre, $telefono, $correo, $direccion){
     $password = password_hash(PASSWORD_PREDETERMINADA, PASSWORD_DEFAULT);
-    $sentencia = "INSERT INTO usuarios (usuario, nombre, telefono, direccion, password) VALUES (?,?,?,?,?)";
-    $parametros = [$usuario, $nombre, $telefono, $direccion, $password];
+    $sentencia = "INSERT INTO usuarios (usuario, nombre, telefono, correo, direccion, password) VALUES (?,?,?,?,?)";
+    $parametros = [$usuario, $nombre, $telefono, $correo, $direccion, $password];
     return insertar($sentencia, $parametros);
 }
 
@@ -60,8 +60,8 @@ function eliminarCliente($id){
     return eliminar($sentencia, $id);
 }
 
-function editarCliente($nombre, $telefono, $direccion, $id){
-    $sentencia = "UPDATE clientes SET nombre = ?, telefono = ?, direccion = ? WHERE id = ?";
+function editarCliente($nombre, $telefono, $correo, $direccion, $id){
+    $sentencia = "UPDATE clientes SET nombre = ?, telefono = ?, correo = ?,direccion = ? WHERE id = ?";
     $parametros = [$nombre, $telefono, $direccion, $id];
     return editar($sentencia, $parametros);
 }
@@ -77,9 +77,9 @@ function obtenerClientes(){
     return select($sentencia);
 }
 
-function registrarCliente($nombre, $telefono, $direccion){
-    $sentencia = "INSERT INTO clientes (nombre, telefono, direccion) VALUES (?,?,?)";
-    $parametros = [$nombre, $telefono, $direccion];
+function registrarCliente($nombre, $telefono, $correo, $direccion){
+    $sentencia = "INSERT INTO clientes (nombre, telefono, correo, direccion) VALUES (?,?,?)";
+    $parametros = [$nombre, $telefono, $correo, $direccion];
     return insertar($sentencia, $parametros);
 }
 

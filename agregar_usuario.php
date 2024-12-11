@@ -22,6 +22,10 @@ if(empty($_SESSION['usuario'])) header("location: login.php");
             <input type="text" name="telefono" class="form-control" id="telefono" placeholder="Ej. 2111568974">
         </div>
         <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="text" name="correo" class="form-control" id="correo" placeholder="Ej. xxxxx@xxxxxxxxx.com">
+        </div>
+        <div class="mb-3">
             <label for="direccion" class="form-label">Dirección</label>
             <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Ej. Av Collar 1005 Col Las Cruces">
         </div>
